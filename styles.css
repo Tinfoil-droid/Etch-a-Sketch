@@ -23,7 +23,7 @@
   text-align: center;
   }
 
-  #reset {
+  button {
     display: flex;
     margin: 0 auto;
   }
