@@ -10,15 +10,28 @@ function createGrid() {
     }
 };
 
-function draw() {
-    const canvas = document.querySelectorAll('.grid');
+//Old, unoptimized, code:
+//The forEach(item) added individual event listeners for each grid cell, which slowed things down.
 
-    canvas.forEach(item => {
-        item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = 'black';
-        });
+// function draw() {
+//     const canvas = document.querySelectorAll('.grid');
+
+//     canvas.forEach(item => {
+//         item.addEventListener('mouseover', () => {
+//             item.style.backgroundColor = 'black';
+//         });
+//     });
+// };
+
+function draw() {
+    const container = document.getElementById('container');
+    
+    container.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('grid')) {
+            event.target.style.backgroundColor = 'black';
+        }
     });
-};
+}
 
 function resetBoard() {
     const reset = document.getElementById('reset');
