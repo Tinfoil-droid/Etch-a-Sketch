@@ -22,7 +22,19 @@ function draw() {
     });
 };
 
+function resetBoard() {
+    const reset = document.getElementById('reset');
+
+    reset.addEventListener('click', () => {
+        container.innerHTML = '';
+        createGrid();
+        draw();
+    });
+}
+
 window.onload = () => {
     createGrid();
     draw();
+    resetBoard();
 };
+
