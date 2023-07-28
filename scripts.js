@@ -1,6 +1,9 @@
 function createGrid() {
     const container = document.getElementById('container');
 
+    container.style.gridTemplateColumns = 'repeat(16, 1fr)'
+    container.style.gridTemplateRows = 'repeat(16, 1fr)'
+
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
             const grid = document.createElement('div');
@@ -46,7 +49,6 @@ function resetBoard() {
 window.onload = () => {
     createGrid();
     draw();
-    resetBoard();
 };
 
 function canvasSize() {
@@ -63,6 +65,9 @@ function canvasSize() {
   function resizeGrid(userSize) {
     const container = document.getElementById('container');
     container.innerHTML = ''; 
+
+    container.style.gridTemplateColumns = `repeat(${userSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${userSize}, 1fr)`;
   
     for (let i = 0; i < userSize; i++) {
       for (let j = 0; j < userSize; j++) {
@@ -73,5 +78,3 @@ function canvasSize() {
       }
     }
   }
-  
-  canvasSize();
