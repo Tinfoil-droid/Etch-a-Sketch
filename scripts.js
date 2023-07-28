@@ -1,11 +1,23 @@
-function createGrid() {
+function canvasSize() {
+    const chooseSize = document.getElementById('prompt');
+    chooseSize.addEventListener('click', () => {
+      const userInput = window.prompt('Type pad size (max. 100)', '');
+      let userSize = parseInt(userInput, 10);
+      if (userSize === '' || isNaN(userSize)) return;
+      userSize = Math.min(userSize, 100);
+      container.innerHTML = '';
+      createGrid(userSize); 
+    });
+  }
+
+function createGrid(userSize) {
     const container = document.getElementById('container');
 
-    container.style.gridTemplateColumns = 'repeat(16, 1fr)'
-    container.style.gridTemplateRows = 'repeat(16, 1fr)'
+    container.style.gridTemplateColumns = `repeat(${userSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${userSize}, 1fr)`;
 
-    for (let i = 0; i < 16; i++) {
-        for (let j = 0; j < 16; j++) {
+    for (let i = 0; i < userSize; i++) {
+        for (let j = 0; j < userSize; j++) {
             const grid = document.createElement('div');
             grid.classList.add('grid');
             container.appendChild(grid);
@@ -41,40 +53,36 @@ function resetBoard() {
 
     reset.addEventListener('click', () => {
         container.innerHTML = '';
-        createGrid();
+        createGrid(16);
         draw();
     });
 }
 
 window.onload = () => {
-    createGrid();
+    createGrid(16);
     draw();
+    canvasSize();
+    resetBoard();
 };
 
-function canvasSize() {
-    const chooseSize = document.getElementById('prompt');
-    chooseSize.addEventListener('click', () => {
-      const userInput = window.prompt('Type pad size (max. 100)', '');
-      let userSize = parseInt(userInput, 10);
-      if (userSize === '' || isNaN(userSize)) return;
-      userSize = Math.min(userSize, 100);
-      resizeGrid(userSize); 
-    });
-  }
-  
-  function resizeGrid(userSize) {
-    const container = document.getElementById('container');
-    container.innerHTML = ''; 
 
-    container.style.gridTemplateColumns = `repeat(${userSize}, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${userSize}, 1fr)`;
+// Old code:
+// When i first wrote this, I just copied the above function.
+// Now, I merge them so that a single function can both create the og board as well as resize it.
   
-    for (let i = 0; i < userSize; i++) {
-      for (let j = 0; j < userSize; j++) {
-        const grid = document.createElement('div');
-        grid.classList.add('grid');
-        container.appendChild(grid);
-        draw();
-      }
-    }
-  }
+//   function resizeGrid(userSize) {
+//     const container = document.getElementById('container');
+//     container.innerHTML = ''; 
+
+//     container.style.gridTemplateColumns = `repeat(${userSize}, 1fr)`;
+//     container.style.gridTemplateRows = `repeat(${userSize}, 1fr)`;
+  
+//     for (let i = 0; i < userSize; i++) {
+//       for (let j = 0; j < userSize; j++) {
+//         const grid = document.createElement('div');
+//         grid.classList.add('grid');
+//         container.appendChild(grid);
+//         draw();
+//       }
+//     }
+//   }
