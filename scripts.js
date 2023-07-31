@@ -1,15 +1,3 @@
-function canvasSize() {
-    const chooseSize = document.getElementById('prompt');
-    chooseSize.addEventListener('click', () => {
-      const userInput = window.prompt('Type pad size (max. 100)', '');
-      let userSize = parseInt(userInput, 10);
-      if (userSize === '' || isNaN(userSize)) return;
-      userSize = Math.min(userSize, 100);
-      container.innerHTML = '';
-      createGrid(userSize); 
-    });
-  }
-
 function createGrid(userSize) {
     const container = document.getElementById('container');
 
@@ -24,6 +12,26 @@ function createGrid(userSize) {
         }
     }
 };
+
+
+function canvasSize() {
+    const chooseSize = document.getElementById('prompt');
+    chooseSize.addEventListener('click', () => {
+        const userInput = window.prompt('Type pad size (max. 100)', '');
+        let userSize = parseInt(userInput, 10);
+        
+        if (userSize === '' || isNaN(userSize)) {
+        alert('Type a number (max. 100)')
+        }
+        else if (userSize < 0 || userSize > 100) {
+        alert('Type a number between 1 and 100')
+        }
+        else {
+        container.innerHTML = '';
+        createGrid(userSize);
+        } 
+    });
+}
 
 //Old, unoptimized, code:
 //The forEach(item) added individual event listeners for each grid cell, which slowed things down.
@@ -53,13 +61,13 @@ function resetBoard() {
 
     reset.addEventListener('click', () => {
         container.innerHTML = '';
-        createGrid(16);
+        createGrid(32);
         draw();
     });
 }
 
 window.onload = () => {
-    createGrid(16);
+    createGrid(32);
     draw();
     canvasSize();
     resetBoard();
@@ -69,7 +77,7 @@ window.onload = () => {
 // Old code:
 // When i first wrote this, I just copied the above function.
 // Now, I merge them so that a single function can both create the og board as well as resize it.
-  
+
 //   function resizeGrid(userSize) {
 //     const container = document.getElementById('container');
 //     container.innerHTML = ''; 
