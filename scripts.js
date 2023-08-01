@@ -77,11 +77,11 @@ let comments = [
     'What is this even supposed to be?',
     'Comment library depleted. Reloading comment library...',
     'I don\'t know what I\'m seeing, I\'m just a stupid piece of code.',
-    'I don\'t know. Ask me again later.',
+    'Kinda reminds me of someone I know.',
     'Yes. That is ... Wow.',
     'No. Just no.',
     'What a horrible day to have eyes.',
-    'What do you mean, you want colors? Guy who wrote this couldn\'t even be bothered to align the buttons properly.',
+    'What do you mean you want colors? Guy who wrote this could barely align the buttons properly.',
     'That is the most beautiful thing I have ever seen.',
     'Somebody get the Louvre on the phone.',
     'What am I even looking at here?'
