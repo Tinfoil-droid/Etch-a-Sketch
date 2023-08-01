@@ -13,7 +13,6 @@ function createGrid(userSize) {
     }
 };
 
-
 function canvasSize() {
     const chooseSize = document.getElementById('prompt');
     chooseSize.addEventListener('click', () => {
@@ -35,10 +34,12 @@ function canvasSize() {
     });
 }
 
+canvasSize();
+
 function draw() {
     const container = document.getElementById('container');
     
-    container.addEventListener('mouseover', (event) => {
+    container.addEventListener('pointerover', (event) => {
         if (event.target.classList.contains('grid')) {
             event.target.style.backgroundColor = 'black';
         }
