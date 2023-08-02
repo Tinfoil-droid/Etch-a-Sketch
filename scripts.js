@@ -34,8 +34,6 @@ function canvasSize() {
     });
 }
 
-canvasSize();
-
 function draw() {
     const container = document.getElementById('container');
     
