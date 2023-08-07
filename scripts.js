@@ -34,17 +34,36 @@ function canvasSize() {
     });
 }
 
+const colorBlack = '#000000';
+const container = document.getElementById('container');
+
 function draw() {
-    const container = document.getElementById('container');
-    
     container.addEventListener('pointerover', (event) => {
-        if (event.target.classList.contains('grid')) {
-            event.target.style.backgroundColor = 'black';
-        }
-    
-        
+        event.target.style.backgroundColor = colorBlack;
     });
+};
+
+function getRandomRgb() {
+    let num = Math.round(0xffffff * Math.random());
+    let r = num >> 16;
+    let g = num >> 8 & 255;
+    let b = num & 255;
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 }
+
+const colorVomit = document.getElementById('color');
+colorVomit.addEventListener('click', () => {
+container.addEventListener('pointerover', (event) => {
+    event.target.style.backgroundColor = getRandomRgb();
+  });
+});
+
+const black = document.getElementById('black');
+black.addEventListener('click', () => {
+    container.addEventListener('pointerover', (event) => {
+        event.target.style.backgroundColor = colorBlack;
+    });
+});
 
 function resetBoard() {
     const reset = document.getElementById('reset');
