@@ -99,7 +99,6 @@ let comments = [
     'Yes. That is ... Wow.',
     'No. Just no.',
     'What a horrible day to have eyes.',
-    'What do you mean you want colors? Guy who wrote this could barely align the buttons properly.',
     'That is the most beautiful thing I have ever seen.',
     'Somebody get the Louvre on the phone.',
     'What am I even looking at here?'

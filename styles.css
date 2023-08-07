@@ -23,7 +23,7 @@
     text-align: center;
   }
 
-  p {
+  h2 {
   font-size: 5ch;
   text-align: center;
   }
@@ -48,6 +48,12 @@
   #talkbox {
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  footer {
+    font-size: 2ch;
+    font-style: italic;
+    text-align: left;
   }
   
   @media (max-width: 75em) {
