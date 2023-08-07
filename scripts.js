@@ -34,12 +34,13 @@ function canvasSize() {
     });
 }
 
-const colorBlack = '#000000';
 const container = document.getElementById('container');
 
 function draw() {
     container.addEventListener('pointerover', (event) => {
-        event.target.style.backgroundColor = colorBlack;
+        if (event.target.classList.contains('grid')) {
+        event.target.style.backgroundColor = 'black';
+    }
     });
 };
 
@@ -54,14 +55,18 @@ function getRandomRgb() {
 const colorVomit = document.getElementById('color');
 colorVomit.addEventListener('click', () => {
 container.addEventListener('pointerover', (event) => {
+    if (event.target.classList.contains('grid')) {
     event.target.style.backgroundColor = getRandomRgb();
+    }
   });
 });
 
 const black = document.getElementById('black');
 black.addEventListener('click', () => {
     container.addEventListener('pointerover', (event) => {
-        event.target.style.backgroundColor = colorBlack;
+        if (event.target.classList.contains('grid')) {
+        event.target.style.backgroundColor = 'black';
+        }
     });
 });
 
